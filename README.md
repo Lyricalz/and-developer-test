@@ -1,26 +1,23 @@
-This is a starter template for [Ionic](http://ionicframework.com/docs/) projects.
+# Whitbread - ANDigital Coding Exercise
 
-## How to use this template
+A live firebase link is available here: 
+https://foursquare-ba567.firebaseapp.com/
 
-*This template does not work on its own*. The shared files for each starter are found in the [ionic2-app-base repo](https://github.com/ionic-team/ionic2-app-base).
+This project was using Ionic 3.6.0.
 
-To use this template, either create a new ionic project using the ionic node.js utility, or copy the files from this repository into the [Starter App Base](https://github.com/ionic-team/ionic2-app-base).
+# Summary
+- Foursquare requires you to either enter Latitude/Longitude pair or simply a location area as a string so that it can provide results close to that location. So i've decided as soon as the app loads to the request the users location using the HTML geolocation api and handle the responses appropiately.
 
-### With the Ionic CLI:
+- Once the app has returned the users long/lat pair, we store this value globally and enable the search input.
 
-Take the name after `ionic2-starter-`, and that is the name of the template to be used when using the `ionic start` command below:
+- Once the user types in a search location we send a request to our service to fetch the data from the foursquare venue search api endpoint.
 
-```bash
-$ sudo npm install -g ionic cordova
-$ ionic start myBlank blank
-```
+- Once we have received a response, we loop through the results and display them in a simple list. In addition we also setup Google Map markers which is relevant to that list and add alert boxes when a user clicks one of these markers with some basic actions to interact with the location.
 
-Then, to run it, cd into `myBlank` and run:
+# Installation
+To install simply run the following command with either yarn or npm (Yarn is used specifically in this demo):
+Yarn - `yarn install` or simply `yarn` 
+npm - `npm install`
 
-```bash
-$ ionic cordova platform add ios
-$ ionic cordova run ios
-```
-
-Substitute ios for android if not on a Mac.
-
+# Run Locally
+Simply run `yarn run ionic:serve` or `npm run ionic:serve`. This will load a local development server and open a new tab to view the app.

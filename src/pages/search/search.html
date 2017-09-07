@@ -9,7 +9,7 @@
   <ion-navbar>
     <ion-title text-center>FourSquare Search</ion-title>
 
-    <ion-searchbar [(ngModel)]="myInput" (ionInput)="search($event.target.value)">
+    <ion-searchbar [(ngModel)]="myInput" (ionInput)="search($event.target.value)" placeholder="e.g Starbucks">
     </ion-searchbar>
   </ion-navbar>
 
@@ -17,4 +17,25 @@
 
 
 <ion-content padding>
+  <h1></h1>
+  <p>This page will use your current location to search for locations similiar to your input that are near you.</p>
+
+  <ion-grid>
+    <ion-row>
+      <div col col-4 class="locations-wrap">
+        <ion-list *ngFor="let venue of venues" id="venue-{{ venue.id }}">
+          <ion-item>
+            <h2>{{ venue.name }}</h2>
+            <h3>{{ venue.categories[0] ? venue.categories[0].name : '' }}</h3>
+            <p>{{ venue.location.formattedAddress.join(', ') }}</p>
+          </ion-item>
+        </ion-list>
+      </div>
+
+      <div col col-8 class="map-wrap">
+        <div style="height: 100%; width: 100%" #mapCanvas id="map_canvas"></div>
+      </div>
+    </ion-row>
+  </ion-grid>
+
 </ion-content>

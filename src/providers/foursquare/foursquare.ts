@@ -12,9 +12,13 @@ import 'rxjs/add/operator/map';
 export class FoursquareProvider {
 
   endpoint;
+  client_id;
+  client_secret;
 
   constructor(public http: Http) {
     this.endpoint = 'https://api.foursquare.com/v2/';
+    this.client_id = 'W4RTK14ILRQKSHMOIRZY4E1G3NQQDHAE5UEVTVP4KOQU5UOE';
+    this.client_secret = 'ECEMMANOOBBY1KZ3WOJFPNF2KIPJBRAXVNURG2F4CI31Y3WR';
   }
 
   searchVenue(params) {
@@ -24,6 +28,9 @@ export class FoursquareProvider {
   }
 
   serialize(obj) {
+    obj['client_id'] = this.client_id;
+    obj['client_secret'] = this.client_secret;
+    obj['v'] = '20161016';
     return Object.keys(obj).map(k => `${encodeURIComponent(k)}=${encodeURIComponent(obj[k])}`).join('&');
   }
 

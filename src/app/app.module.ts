@@ -5,13 +5,12 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
 import { FoursquareProvider } from '../providers/foursquare/foursquare';
+import { GeolocationProvider } from '../providers/geolocation/geolocation';
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage,
     SearchPage
   ],
   imports: [
@@ -22,12 +21,12 @@ import { FoursquareProvider } from '../providers/foursquare/foursquare';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage,
     SearchPage
   ],
   providers: [
     { provide: ErrorHandler, useClass: IonicErrorHandler },
-    FoursquareProvider
+    FoursquareProvider,
+    GeolocationProvider
   ]
 })
 export class AppModule { }

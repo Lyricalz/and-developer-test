@@ -1,3 +1,9 @@
 page-search {
-
+  .locations-wrap,
+  .map-wrap {
+    height: 500px;
+  }
+  .locations-wrap {
+    overflow: scroll;
+  }
 }
